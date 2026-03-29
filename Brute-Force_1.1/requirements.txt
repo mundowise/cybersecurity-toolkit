@@ -1,0 +1,29 @@
+
+# CORE Y GUI
+tk
+matplotlib
+fpdf
+
+# RED/PROTOCOLOS
+paramiko
+pymysql
+psycopg2-binary
+pymssql
+redis
+requests
+nmap
+pymongo
+vncdotool
+smbprotocol
+rarfile
+scapy
+rich
+winrm
+# WINRM (Windows Remote Management)
+pywinrm
+
+# ZIP y archivos (estándar en Python)
+# zipfile (es built-in)
+
+# EXTRAS PARA MEJORAR COMPATIBILIDAD
+pysmb

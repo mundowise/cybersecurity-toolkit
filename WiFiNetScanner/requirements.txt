@@ -1,0 +1,11 @@
+# Add Python dependencies here (e.g. pybind11, pyyaml)
+# ===== WiFiNetScanner Python dependencies =====
+
+pyyaml>=6.0        # Configuration management and YAML parsing
+rich>=13.0.0       # Professional CLI output and logging (color, tables, progress)
+pytest>=7.0.0      # Automated testing framework
+
+# For C++ extension integration in future releases
+pybind11>=2.10.0   # Python bindings for C++ modules (planned for performance-critical paths)
+
+# Add further dependencies as needed for modules (e.g. numpy, scapy for test comparisons, but keep minimal for core)

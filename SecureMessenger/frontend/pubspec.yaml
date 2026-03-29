@@ -1,0 +1,29 @@
+name: secure_messenger
+description: Mensajería anónima y segura
+version: 0.1.0
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+dependencies:
+  flutter:
+    sdk: flutter
+  provider: ^6.0.0
+  qr_flutter: ^4.1.0
+  cryptography: ^2.7.0
+  flutter_secure_storage: ^9.2.2
+  http: ^1.2.0
+  intl: 0.20.2
+  flutter_localizations:
+    sdk: flutter
+  path_provider: ^2.1.5
+  file_picker: ^6.1.1
+  image: ^4.2.0
+  encrypt: ^5.0.1
+  google_fonts: ^6.2.1
+  ffmpeg_kit_flutter_full_gpl: ^6.0.3
+  pointycastle: ^3.7.3
+  audioplayers: ^5.2.1
+  record: ^6.0.0
+  shared_preferences: ^2.2.2
+dev_dependencies:
+  flutter_test:
+    sdk: flutter

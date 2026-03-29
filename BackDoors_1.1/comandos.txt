@@ -1,0 +1,64 @@
+========================================================
+LISTADO DE COMANDOS - BackDoors_1.1 (Cliente)
+========================================================
+
+-- Comandos nativos --
+exit
+    - Cierra el cliente y el proceso TOR.
+
+info
+    - Devuelve información de sistema y host de la víctima.
+
+-- Comandos modulares (formato: modulo.comando [opciones]) --
+
+keylogger.start
+    - Inicia el keylogger.
+
+keylogger.stop
+    - Detiene el keylogger.
+
+keylogger.dump
+    - Devuelve el registro de teclas capturadas.
+
+screengrab.snap
+    - Realiza y guarda una captura de pantalla.
+
+screengrab.fetch
+    - Devuelve la última captura realizada.
+
+persistence.install
+    - Instala persistencia multinivel y autocopia.
+
+persistence.remove
+    - Elimina persistencia de todas las rutas.
+
+propagator.usb
+    - Propaga el cliente a todos los USB conectados (autorun).
+
+propagator.network
+    - Propaga el cliente por red local (SMB/SSH).
+
+credentials.dump
+    - Extrae todas las credenciales y contraseñas (browsers, vaults, keyring).
+
+cookies.dump
+    - Extrae cookies de todos los navegadores y perfiles en .zip.
+
+exfiltrator.upload ruta_local ruta_destino
+    - Sube archivo de la víctima al servidor.
+
+exfiltrator.download ruta_remota ruta_local
+    - Descarga archivo del servidor a la víctima.
+
+logger.show
+    - Muestra el log completo de actividad.
+
+secure_kill.kill <clave>
+    - Autodestruye el cliente solo con la clave secreta.
+
+antiforensic.clean
+    - Borra logs, evidencias, capturas y rastros.
+
+========================================================
+(Agrega aquí cualquier nuevo módulo o subcomando según lo implementes)
+========================================================

@@ -1,0 +1,115 @@
+Manual Detallado de Uso para el Codigo Definitivo.py
+
+1. Introduccion
+Este software es una herramienta avanzada de fuerza bruta multi-servicio con interfaz grafica que permite atacar multiples protocolos y servicios comunes en entornos de red y web, con soporte para proxies, deteccion automatica y control completo de ejecucion.
+
+2. Requisitos previos
+- Python 3.8 o superior instalado.
+- Librerias externas necesarias (instalalas con pip):
+pip install paramiko pymysql psycopg2 pymssql redis pymongo pysmb telnetlib3 winrm python-nmap matplotlib rarfile vncdotool requests
+- Para algunos modulos (ej. psycopg2, pymssql) puede requerirse compiladores o librerias del sistema.
+- Archivos diccionarios de usuarios y contrasenas en texto plano.
+- Archivo opcional de proxies (uno por linea).
+
+3. Ejecucion
+Ejecuta el script con:
+python Definitivo.py
+Se abrira la interfaz grafica con estilo Windows 98.
+
+4. Uso de la interfaz
+a) Seleccion de servicio
+- Elige el servicio/protocolo que deseas atacar en el desplegable (FTP, SSH, MYSQL, POSTGRESQL, HTTP_BASIC, etc.).
+- Opcionalmente, usa "Detectar servicio automaticamente" para que el programa intente identificar el tipo de servicio segun el objetivo ingresado.
+
+b) Objetivo
+- Ingresa la IP, dominio o ruta de archivo que quieres atacar.
+- Si es un archivo ZIP o RAR, el programa detectara el tipo automaticamente.
+
+c) Puerto
+- Ingresa el puerto manualmente si lo deseas. Si lo dejas vacio, se usara el puerto por defecto para el servicio.
+
+d) Proxies
+- Carga un archivo de proxies si deseas usarlos para rotar conexiones.
+- Selecciona el tipo de proxy (SOCKS5, SOCKS4, HTTP, TOR).
+
+e) Opciones de credenciales
+- Puedes cargar diccionarios de usuarios y contrasenas.
+- Tambien puedes activar "Generar aleatorios" para generar combinaciones aleatorias de usuario y contrasena, definiendo longitud y cantidad.
+
+f) Control de ejecucion
+- Configura el numero de hilos, reintentos y timeout global.
+- Puedes iniciar, pausar, reanudar o detener el ataque desde los botones.
+
+g) OTP
+- Puedes ingresar el nombre del campo OTP y el codigo para intentos con autenticacion de dos factores.
+
+h) HTTP avanzado (solo para HTTP_POST y HTTP_BASIC)
+- Ingresa headers personalizados, cookies, User-Agent, datos POST extra.
+- Define patrones para detectar bloqueos o CAPTCHAs en las respuestas.
+
+i) Progreso y estadisticas
+- Barra de progreso indica avances en ataques.
+- Visualizacion de estadisticas y graficas con intentos, errores y exitos.
+- El panel de ataques incluye barras de progreso, estadísticas en tiempo real (intentos, éxitos, errores, ETA, tasa de ataque), 
+  y gráficas dinámicas de evolución en vivo.
+
+j) Crackeo de Hashes
+- Desde la pestaña "Crackeo de Hashes" puedes cargar archivos de hashes y diccionarios de contraseñas.
+- Permite autodetección de tipo de hash y soporte para motores Hashcat y John the Ripper.
+- Visualiza los resultados en la propia interfaz y expórtalos a CSV o PDF para reportes forenses o auditorías.
+- Compatible con hashes de sistemas, bases de datos, WiFi y muchos otros formatos soportados por hashcat/john.
+
+5. Registro y reportes
+- Resultados exitosos, errores y todos los intentos se guardan en archivos .csv y .txt en la carpeta de ejecucion.
+- Puedes revisar los archivos resultados_exitos.csv, resultados_errores.csv, resultados_todos.csv para analisis posteriores.
+
+6. Funcionalidades avanzadas
+- Blacklist temporal para evitar repetir ataques con credenciales o IPs que bloqueen el sistema.
+- Deteccion y manejo automatico de bloqueos y CAPTCHAs.
+- Soporte para multiples protocolos y ataques personalizados.
+- Control fino de ejecucion con pausas y cancelaciones seguras.
+- Rotacion automatica de proxies.
+- Deteccion automatica del tipo de servicio mediante escaneo y analisis web.
+- Interfaz amigable con estilo clasico Windows 98.
+
+7. Recomendaciones
+- Usa esta herramienta solo en entornos controlados y con permiso explicito para evitar consecuencias legales.
+- Configura adecuadamente la cantidad de hilos y tiempo de espera para no saturar el objetivo o tu red.
+- Actualiza diccionarios de usuarios y contrasenas para mejores resultados.
+- Utiliza proxies confiables para evitar bloqueo IP.
+
+GNU GENERAL PUBLIC LICENSE
+Version 3, 29 June 2007
+
+Copyright (C) 2025 WodeN-4ever
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.

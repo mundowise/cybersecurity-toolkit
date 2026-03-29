@@ -1,0 +1,45 @@
+# Default configuration file
+# WiFiNetScanner - Default Configuration
+# This file defines all default parameters for scanning, performance, and logging.
+# Adjust these values per deployment or environment.
+
+network:
+  default_interface: wlan1          # Default network interface (override per scan/job)
+  scan_timeout: 5                   # Timeout (seconds) for all scan operations
+  max_threads: 32                   # Max threads for concurrent operations (adapt to CPU)
+  interface_mode: monitor           # 'monitor' for WiFi (recommended), 'managed' for LAN
+
+wifi:
+  channel_hopping: true             # Enable automatic channel hopping (WiFi scans)
+  channels: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 36, 40, 44, 48]              # WiFi channels to scan by default (extend as needed)
+  country_code: "US"                # Regulatory domain (affects channel/frequency support)
+  packet_capture_limit: 0           # 0 = unlimited, else max packets per scan
+
+scanner:
+  enable_arp_scan: true             # Enable ARP scan for LAN
+  enable_icmp_scan: true            # Enable ICMP (ping) scan
+  enable_tcp_scan: true             # Enable TCP port scan
+  enable_udp_scan: true             # Enable UDP port scan
+  tcp_ports: [22, 80, 443, 445, 3389]   # Default TCP ports to scan
+  udp_ports: [53, 123, 161]             # Default UDP ports to scan
+  stealth_mode: false               # Enable scan throttling and timing randomization
+
+logging:
+  enabled: true                     # Enable/disable logging system-wide
+  log_file: data/wifinetscanner.log      # Default log file (relative to data/logs/)
+  log_level: INFO                   # Log level: DEBUG, INFO, WARNING, ERROR, CRITICAL
+  log_rotation: daily               # Log rotation policy: daily/weekly/size-based
+
+reporting:
+  output_formats: [json, csv, pcap] # Supported report formats for scan/session export
+  anonymize_reports: true           # Remove sensitive info from exported logs/reports
+
+security:
+  drop_privileges: true             # Drop root after initializing raw sockets/monitor mode
+  safe_mode: true                   # Extra validations to prevent disruptive operations
+
+performance:
+  async_io: true                    # Use async IO where possible for sniffer/scanner
+  rate_limit: 1000                  # Packets per second max (0 = unlimited)
+
+# Add further configuration blocks as needed (for modules/plugins)

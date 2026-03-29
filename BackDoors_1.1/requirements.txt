@@ -1,0 +1,46 @@
+# BackDoors_1.1 — Python Dependencies
+# Install: pip install -r requirements.txt
+# Some packages are platform-specific (see comments)
+
+# Cryptography
+cryptography>=41.0.0
+pycryptodomex>=3.19.0
+
+# System and process monitoring
+psutil>=5.9.0
+
+# Input capture (keylogger)
+pynput>=1.7.6
+
+# Screen capture
+pyscreenshot>=3.1
+Pillow>=10.0.0
+
+# GUI (C2 server)
+# tk is typically provided by the system: sudo apt install python3-tk
+
+# Reporting
+fpdf2>=2.7.0
+
+# Networking / proxy
+pysocks>=1.7.1
+
+# Build (compile client implant)
+pyinstaller>=6.0.0
+
+# Testing
+pytest>=7.4.0
+pytest-mock>=3.11.0
+
+# Windows only
+# pywin32>=306          # Uncomment on Windows
+
+# Linux only
+# secretstorage>=3.3.3  # Credential storage on Linux (GNOME keyring)
+# python3-xlib          # Install via system package manager: sudo apt install python3-xlib
+
+# Browser cookie extraction
+browser-cookie3>=0.19.1
+
+# SSH propagation module
+# sshpass is a system binary: sudo apt install sshpass

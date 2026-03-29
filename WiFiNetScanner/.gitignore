@@ -1,0 +1,82 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*.so
+*.pyd
+
+# C/C++ build artifacts
+*.o
+*.obj
+*.dll
+*.a
+*.lib
+*.dylib
+
+# Build directories
+/build/
+/dist/
+/*.egg-info
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Environment variables and secrets
+.env
+.env.*
+
+# Editor directories and files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# macOS/Unix system files
+.DS_Store
+*.sublime-workspace
+
+# Pytest cache
+.pytest_cache/
+
+# Coverage reports
+.coverage
+htmlcov/
+
+# Test output and coverage
+tests/__pycache__/
+tests/.pytest_cache/
+
+# Documentation builds
+docs/_build/
+docs/.doctrees
+
+# Project data, logs, temp files
+data/
+logs/
+output/
+*.log
+*.tmp
+*.bak
+
+# Sphinx documentation cache
+docs/_build/
+docs/_static/
+
+# CI/CD, containers, and virtual environments
+*.dockerfile
+*.envrc
+*.venv/
+.venv/
+env/
+ENV/
+
+# Windows files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Python virtual environment folders
+venv/
+.venv/
+ENV/
+env/
