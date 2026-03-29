@@ -50,3 +50,9 @@ node_modules/
 .pytest_cache/
 .coverage
 htmlcov/
+
+# Excluded projects (not for public release)
+CHATTTT/
+MCP/
+Prgramacion/
+codigo de revision/
