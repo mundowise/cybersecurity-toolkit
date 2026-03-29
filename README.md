@@ -24,6 +24,7 @@ The author assumes NO responsibility for misuse or damage caused by this softwar
 | [WiFiNetScanner](WiFiNetScanner/) | Advanced modular WiFi and network reconnaissance suite | Network Analysis |
 | [EncriptadoX](EncriptadoX/) | Cross-platform encryption and steganography desktop tool | Cryptography |
 | [SecureMessenger](SecureMessenger/) | End-to-end encrypted multi-platform messaging system | Secure Communications |
+| [SecurityAudit](SecurityAudit/) | Lightweight host-based intrusion detection — check if your system is compromised | Defensive / Detection |
 
 ## Requirements
 
